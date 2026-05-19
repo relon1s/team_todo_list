@@ -3,19 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Командный список задач</title>
+    <title>Командный список задач — локальный бэкенд (localStorage)</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <div class="main-layout">
-            
+
             <div class="add-task-form">
                 <div class="form-block input-wrapper">
                     <input type="text" id="taskInput" placeholder="Введите новую задачу...">
                 </div>
                 <div class="form-block input-wrapper">
                     <input type="text" id="assigneeInput" placeholder="Кто выполняет?">
+                </div>
+                <div class="form-block input-wrapper">
+                    <input type="date" id="deadlineInput" title="Срок выполнения">
                 </div>
                 <div class="form-block button-wrapper">
                     <button id="addButton">Добавить</button>
@@ -24,14 +27,15 @@
 
             <div class="task-list-section">
                 <div class="filters">
-                    <button class="filter-btn active" data-filter="all">Все</button>
-                    <button class="filter-btn" data-filter="active">Активные</button>
-                    <button class="filter-btn" data-filter="completed">Выполненные</button>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">Все</button>
+                        <button class="filter-btn" data-filter="active">Активные</button>
+                        <button class="filter-btn" data-filter="completed">Выполненные</button>
+                    </div>
                 </div>
 
                 <div class="task-list-container">
-                    <ul id="taskList">
-                        </ul>
+                    <ul id="taskList"></ul>
                 </div>
 
                 <div class="task-counter">
@@ -41,5 +45,7 @@
 
         </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

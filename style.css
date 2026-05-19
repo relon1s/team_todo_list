@@ -8,138 +8,233 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
 }
 
+/* Главный контейнер */
 .container {
-    max-width: 600px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: 950px;
     background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    border: 3px solid #000000;
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
-h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 30px;
+/* Двухколоночная сетка с идеальным выравниванием по высоте */
+.main-layout {
+    display: flex;
+    gap: 40px;
+    align-items: stretch;
 }
 
-/* Форма добавления задачи */
+/* --- ЛЕВАЯ КОЛОНКА (ФОРМА) --- */
 .add-task-form {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-    .add-task-form input {
-        flex: 1;
-        padding: 12px;
-        border: 2px solid #ddd;
-        border-radius: 8px;
-        font-size: 16px;
-    }
-
-    .add-task-form button {
-        padding: 12px 24px;
-        background: #667eea;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 16px;
-        font-weight: bold;
-    }
-
-        .add-task-form button:hover {
-            background: #5568d3;
-        }
-
-/* Фильтры */
-.filters {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.filter-btn {
     flex: 1;
-    padding: 10px;
-    border: 2px solid #667eea;
-    background: white;
-    color: #667eea;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: flex-start;
 }
 
-    .filter-btn.active {
-        background: #667eea;
-        color: white;
-    }
-
-/* Список задач */
-#taskList {
-    list-style: none;
-    margin-bottom: 20px;
-}
-
-.task-item {
-    background: #f8f9fa;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 8px;
+/* Элементы формы одинакового размера */
+.form-block {
+    width: 100%;
+    height: 70px;
+    border: 3px solid #000000;
+    border-radius: 16px;
+    background: #ffffff;
     display: flex;
     align-items: center;
-    gap: 10px;
+    padding: 0 20px;
 }
 
-    .task-item.completed {
-        opacity: 0.6;
+.add-task-form input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    color: #333;
+}
+
+    .add-task-form input::placeholder {
+        color: #999;
     }
 
-        .task-item.completed .task-text {
-            text-decoration: line-through;
-        }
-
-.task-checkbox {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
+.button-wrapper {
+    justify-content: center;
+    padding: 0;
+    overflow: hidden;
 }
 
-.task-content {
+.add-task-form button {
+    width: 100%;
+    height: 100%;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+    /* Подсветка и свечение кнопки "Добавить" */
+    .add-task-form button:hover {
+        background: #5568d3;
+        box-shadow: 0 0 15px rgba(102, 126, 234, 0.7);
+    }
+
+    .add-task-form button:active {
+        transform: scale(0.98);
+    }
+
+
+/* --- ПРАВАЯ КОЛОНКА (ФИЛЬТРЫ И СПИСОК) --- */
+.task-list-section {
+    flex: 1.3;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Контейнер фильтров растягивается на всю ширину правой колонки */
+.filters {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+}
+
+/* Кнопки теперь не имеют фиксированной ширины в px, а делят 100% пространства поровну */
+.filter-btn {
+    flex: 1; /* Растягивает кнопки равномерно на всю длину списка задач */
+    height: 45px;
+    border: 3px solid #000000;
+    border-radius: 12px;
+    background: white;
+    font-size: 15px;
+    font-weight: 600;
+    color: #667eea;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+    /* Подсветка фильтров при наведении курсора */
+    .filter-btn:hover, .filter-btn.active {
+        background: #667eea;
+        color: white;
+    }
+
+/* Рамка для списка задач */
+.task-list-container {
+    width: 100%;
+    min-height: 250px;
+    border: 3px solid #000000;
+    border-radius: 20px;
+    padding: 20px;
+    background: #ffffff;
+    flex-grow: 1;
+}
+
+#taskList {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Счетчик задач прижат к нижнему левому краю */
+.task-counter {
+    padding-left: 5px;
+    color: #444;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: auto;
+}
+
+
+/* ==========================================================================
+   ОФОРМЛЕНИЕ ДЛЯ ШАБЛОНА БУДУЩИХ ЗАДАЧ (ДЛЯ БЭКЕНДЕРА)
+   ========================================================================== */
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 3px solid #000000;
+    border-radius: 14px;
+    padding: 15px 20px;
+    background: #ffffff;
+    gap: 20px;
+    transition: all 0.2s ease;
+}
+
+.task-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
     flex: 1;
 }
 
 .task-text {
-    font-size: 16px;
+    font-size: 17px;
+    font-weight: 600;
     color: #333;
-    margin-bottom: 5px;
+    word-break: break-word;
 }
 
 .task-assignee {
-    font-size: 14px;
+    font-size: 13px;
     color: #666;
 }
 
-.delete-btn {
-    padding: 8px 16px;
-    background: #ff4757;
-    color: white;
-    border: none;
+/* Квадрат-чекбокс справа */
+.task-checkbox {
+    width: 28px;
+    height: 28px;
+    border: 3px solid #000000;
     border-radius: 6px;
+    background: white;
     cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
 }
 
-    .delete-btn:hover {
-        background: #ee5a6f;
+    .task-checkbox:hover {
+        background: #e8ecfb;
+        border-color: #667eea;
     }
 
-/* Счётчик */
-.task-counter {
-    text-align: center;
-    color: #666;
-    font-size: 14px;
+/* Стили для выполненной задачи */
+.task-item.completed {
+    opacity: 0.55;
+    background: #fdfdfd;
 }
+
+    .task-item.completed .task-text {
+        text-decoration: line-through;
+        color: #777;
+    }
+
+    .task-item.completed .task-checkbox {
+        background: #667eea;
+        border-color: #667eea;
+        position: relative;
+    }
+
+        .task-item.completed .task-checkbox::after {
+            content: '✓';
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }

@@ -6,6 +6,7 @@
 }
 
 body {
+    /* Фиолетовый градиент для фона всего сайта */
     background: linear-gradient(145deg, #f3e8ff 0%, #e9d5ff 100%);
     min-height: 100vh;
     padding: 2rem 1rem;
@@ -51,14 +52,14 @@ body {
 }
 
     .input-wrapper input:focus {
-        border-color: #a855f7; 
+        border-color: #a855f7; /* Фиолетовый фокус */
         box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.2);
     }
 
 /* Кнопка добавления задачи */
 .button-wrapper button {
     width: 100%;
-    background: #a855f7; 
+    background: #a855f7; /* Основной фиолетовый */
     color: white;
     border: none;
     padding: 0.85rem;
@@ -70,7 +71,7 @@ body {
 }
 
     .button-wrapper button:hover {
-        background: #9333ea; 
+        background: #9333ea; /* Темно-фиолетовый при наведении */
         transform: translateY(-1px);
     }
 
@@ -189,7 +190,7 @@ body {
     font-weight: 500;
 }
 
-/* чекбокс */
+/* Фиолетовый чекбокс */
 .complete-checkbox {
     width: 1.3rem;
     height: 1.3rem;
@@ -208,7 +209,7 @@ body {
 }
 
     .delete-btn:hover {
-        color: #ec4899; 
+        color: #ec4899; /* Розово-красный при наведении на корзину */
         transform: scale(1.05);
     }
 
@@ -238,11 +239,11 @@ body {
     gap: 0.8rem;
 }
 
-/* Счетчик задач  */
+/* Счетчик задач (Добавлена окантовка border) */
 #taskCount {
     background: #f3e8ff;
     color: #6b21a8;
-    border: 1.5px solid #d8b4fe; 
+    border: 1.5px solid #d8b4fe; /* Окантовка счетчика */
     padding: 0.3rem 0.8rem;
     border-radius: 2rem;
 }

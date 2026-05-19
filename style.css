@@ -2,144 +2,255 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /* Фиолетовый градиент для фона всего сайта */
+    background: linear-gradient(145deg, #f3e8ff 0%, #e9d5ff 100%);
     min-height: 100vh;
-    padding: 20px;
+    padding: 2rem 1rem;
 }
 
 .container {
-    max-width: 600px;
+    max-width: 1100px;
     margin: 0 auto;
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
 }
 
-h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 30px;
+.main-layout {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(2px);
+    border-radius: 2rem;
+    box-shadow: 0 20px 35px -12px rgba(107, 33, 168, 0.15);
+    overflow: hidden;
 }
 
-/* Форма добавления задачи */
+/* форма добавления */
 .add-task-form {
+    background: white;
+    padding: 1.75rem 2rem;
     display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border-bottom: 1px solid #f3e8ff;
 }
 
-    .add-task-form input {
-        flex: 1;
-        padding: 12px;
-        border: 2px solid #ddd;
-        border-radius: 8px;
-        font-size: 16px;
+.form-block {
+    flex: 1 1 180px;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 0.85rem 1.2rem;
+    font-size: 1rem;
+    border: 1.5px solid #d8b4fe;
+    border-radius: 1.5rem;
+    background-color: #fefefe;
+    color: #3b0764;
+    transition: all 0.2s;
+    outline: none;
+}
+
+    .input-wrapper input:focus {
+        border-color: #a855f7; /* Фиолетовый фокус */
+        box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.2);
     }
 
-    .add-task-form button {
-        padding: 12px 24px;
-        background: #667eea;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 16px;
-        font-weight: bold;
+/* Кнопка добавления задачи */
+.button-wrapper button {
+    width: 100%;
+    background: #a855f7; /* Основной фиолетовый */
+    color: white;
+    border: none;
+    padding: 0.85rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: 0.15s;
+}
+
+    .button-wrapper button:hover {
+        background: #9333ea; /* Темно-фиолетовый при наведении */
+        transform: translateY(-1px);
     }
 
-        .add-task-form button:hover {
-            background: #5568d3;
-        }
-
-/* Фильтры */
+/* фильтры */
 .filters {
+    padding: 1.2rem 2rem;
+    background: #faf5ff;
+    border-bottom: 1px solid #f3e8ff;
     display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.7rem;
+    flex-wrap: wrap;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 0.7rem;
+    flex-wrap: wrap;
 }
 
 .filter-btn {
-    flex: 1;
-    padding: 10px;
-    border: 2px solid #667eea;
-    background: white;
-    color: #667eea;
-    border-radius: 8px;
+    background: transparent;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 2rem;
     cursor: pointer;
-    font-size: 14px;
+    color: #581c87;
+    transition: 0.1s;
 }
 
+    /* Активный фильтр */
     .filter-btn.active {
-        background: #667eea;
+        background: #a855f7;
         color: white;
+        box-shadow: 0 2px 8px rgba(168, 85, 247, 0.3);
     }
 
-/* Список задач */
+    .filter-btn:hover:not(.active) {
+        background: #f3e8ff;
+    }
+
+/* список задач */
+.task-list-container {
+    padding: 1.5rem 2rem;
+    background: white;
+    min-height: 380px;
+}
+
 #taskList {
     list-style: none;
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
 }
 
 .task-item {
-    background: #f8f9fa;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 8px;
+    background: #ffffff;
+    border: 1px solid #f3e8ff;
+    border-radius: 1.25rem;
+    padding: 1rem 1.25rem;
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    transition: all 0.2s;
 }
 
-    .task-item.completed {
-        opacity: 0.6;
+    .task-item:hover {
+        border-color: #d8b4fe;
+        background: #faf5ff;
+        box-shadow: 0 6px 12px -8px rgba(168, 85, 247, 0.15);
     }
 
-        .task-item.completed .task-text {
-            text-decoration: line-through;
-        }
-
-.task-checkbox {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-}
-
-.task-content {
-    flex: 1;
+.task-info {
+    flex: 3;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
 }
 
 .task-text {
-    font-size: 16px;
-    color: #333;
-    margin-bottom: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #3b0764;
+    word-break: break-word;
 }
 
+/* Тег исполнителя */
 .task-assignee {
-    font-size: 14px;
-    color: #666;
+    background: #f3e8ff;
+    border-radius: 2rem;
+    padding: 0.2rem 0.9rem;
+    font-size: 0.8rem;
+    color: #6b21a8;
+    font-weight: 500;
+}
+
+.task-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+/* Тег дедлайна */
+.task-deadline {
+    font-size: 0.85rem;
+    color: #701a75;
+    background: #fae8ff;
+    padding: 0.2rem 0.7rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+}
+
+/* Фиолетовый чекбокс */
+.complete-checkbox {
+    width: 1.3rem;
+    height: 1.3rem;
+    cursor: pointer;
+    accent-color: #a855f7;
 }
 
 .delete-btn {
-    padding: 8px 16px;
-    background: #ff4757;
-    color: white;
+    background: none;
     border: none;
-    border-radius: 6px;
+    font-size: 1.5rem;
     cursor: pointer;
+    color: #c084fc;
+    transition: 0.1s;
+    padding: 0 0.3rem;
 }
 
     .delete-btn:hover {
-        background: #ee5a6f;
+        color: #ec4899; /* Розово-красный при наведении на корзину */
+        transform: scale(1.05);
     }
 
-/* Счётчик */
+.completed-task .task-text {
+    text-decoration: line-through;
+    color: #a21caf;
+    opacity: 0.6;
+}
+
+.completed-task .task-deadline {
+    text-decoration: line-through;
+    color: #d8b4fe;
+    background: #faf5ff;
+}
+
 .task-counter {
+    padding: 1rem 2rem 1.6rem;
+    font-size: 0.9rem;
+    color: #581c87;
+    border-top: 1px solid #f3e8ff;
+    background: white;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+/* Счетчик задач (Добавлена окантовка border) */
+#taskCount {
+    background: #f3e8ff;
+    color: #6b21a8;
+    border: 1.5px solid #d8b4fe; /* Окантовка счетчика */
+    padding: 0.3rem 0.8rem;
+    border-radius: 2rem;
+}
+
+.empty-message {
     text-align: center;
-    color: #666;
-    font-size: 14px;
+    color: #a855f7;
+    padding: 2rem;
+    font-size: 1rem;
 }

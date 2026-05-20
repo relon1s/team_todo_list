@@ -28,7 +28,7 @@
 - CSS3
 - JavaScript (Vanilla JS)
 - Git & GitHub
-
+- 
 ## 🚀 Как запустить проект
 
 1. Откройте ссылку: https://relon1s.github.io/team_todo_list/

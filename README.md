@@ -31,6 +31,4 @@
 
 ## 🚀 Как запустить проект
 
-1. Клонируйте репозиторий:
-```bash
-git clone https://github.com/ваш-username/team-todo-list.git
+1. Откройте ссылку: https://github.com/relon1s/team_todo_list.git

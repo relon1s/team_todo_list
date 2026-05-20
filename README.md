@@ -31,4 +31,4 @@
 
 ## 🚀 Как запустить проект
 
-1. Откройте ссылку: https://github.com/relon1s/team_todo_list.git
+1. Откройте ссылку: [https://relon1s.github.io/team_todo_list/]
